@@ -1,35 +1,54 @@
 {
   "name": "waterline-derby",
-  "version": "0.10.0",
+  "version": "0.11.4",
   "description": "Apache Derby adapter for Sails / Waterline",
-  "main": "adapter.js",
+  "main": "lib/adapter.js",
   "scripts": {
-    "test": "node test/integration/runner -R spec -b"
+    "test": "make test"
   },
-  "repository": {"type":"git","url":"git://github.com/balderdashy/waterline-%s.git"},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dash-/node-sails-derby.git"
+  },
   "keywords": [
     "derby",
+    "apache derby",
+    "orm",
     "adapter",
     "sails",
     "waterline",
     "sails.js",
     "plugin"
   ],
-  "author": "balderdashy",
+  "author": "dash-",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^3.2.2",
+    "lodash": "^4.3.0",
+    "squel": "^4.3.1",
+    "waterline-errors": "^0.10.1",
+    "waterline-sequel": "^0.5.6"
+  },
   "devDependencies": {
-    "waterline-adapter-tests": "~0.10.0",
-    "mocha": "*",
-    "captains-log": "~0.11.0"
+    "captains-log": "~0.11.11",
+    "mocha": "2.4.1",
+    "should": "8.2.0",
+    "waterline-adapter-tests": "~0.11.1"
   },
   "waterlineAdapter": {
     "type": "derby",
+    "waterlineVersion": "~0.10.0",
     "interfaces": [
       "semantic",
-      "queryable"
+      "queryable",
+      "migratable",
+      "sql"
     ],
-    "waterlineVersion": "~0.10.0"
+    "features": [
+      "crossAdapter",
+      "unique",
+      "autoIncrement.sequential"
+    ]
   }
 }
