@@ -2,7 +2,7 @@
 
 # waterline-derby
 
-Provides easy access to `Apache Derby` from Sails.js & Waterline.
+Provides easy access to [Apache Derby](https://db.apache.org/derby/) from Sails.js & Waterline.
 
 This module is a Waterline/Sails adapter, an early implementation of a
 rapidly-developing, tool-agnostic data standard.  Its goal is to provide a set
@@ -98,28 +98,6 @@ Default settings are:
   schema: true
 }
 ```
-
-## Publish your adapter
-
-> You're welcome to write proprietary adapters and use them any way you wish--
-> these instructions are for releasing an open-source adapter.
-
-1. Create a [new public repo](https://github.com/new) and add it as a remote
-   (`git remote add origin git@github.com:yourusername/sails-youradaptername.git)
-2. Make sure you attribute yourself as the author and set the license in the
-   package.json to "MIT".
-3. Run the tests one last time.
-4. Do a [pull request to sails-docs](https://github.com/balderdashy/sails-docs/compare/)
-   adding your repo to `data/adapters.js`.  Please let us know about any special
-   instructions for usage/testing.
-5. We'll update the documentation with information about your new adapter
-6. Then everyone will adore you with lavish praises.  Mike might even send you
-   jelly beans.
-
-7. Run `npm version patch`
-8. Run `git push && git push --tags`
-9. Run `npm publish`
-
 
 ### More Resources
 
