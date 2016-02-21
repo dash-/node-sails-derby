@@ -27,9 +27,9 @@ module.exports = (() => {
 
     initialize: function(options, jars) {
       if(init.isInitialized()) {
-      	console.error('Cannot initialize JDBC driver: Already initialized.');
-      	return;
-			}
+        console.error('Cannot initialize JDBC driver: Already initialized.');
+        return;
+      }
 
       // Set java command options
       _.isArray(options) || (options = [options]);
@@ -69,9 +69,9 @@ module.exports = (() => {
     },
   };
 
-	jinst.events.on('initialized', () => {
-		isInitialized = true;
-	});
+  jinst.events.on('initialized', () => {
+    isInitialized = true;
+  });
 
   return init;
 })();

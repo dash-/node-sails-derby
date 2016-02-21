@@ -21,94 +21,83 @@ everyone.
 To install this adapter, run:
 
 ```sh
-$ npm install waterline-derby
+$ npm install --save waterline-derby
 ```
-
-
-
 
 ### Usage
 
 This adapter exposes the following methods:
 
 ###### `find()`
-
-+ **Status**
-  + Planned
-
 ###### `create()`
-
-+ **Status**
-  + Planned
-
 ###### `update()`
-
-+ **Status**
-  + Planned
-
 ###### `destroy()`
-
-+ **Status**
-  + Planned
-
 
 
 ### Interfaces
 
->TODO:
->Specify the interfaces this adapter will support.
->e.g. `This adapter implements the [semantic]() and [queryable]() interfaces.`
-> For more information, check out this repository's [FAQ](./FAQ.md) and the
-[adapter interface reference](https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md)
+This adapter implements the semantic, queryable,  associations and sql interfaces.
+For more information, check out the [adapter interface reference](https://github.com/balderdashy/sails-docs/blob/master/contributing/adapter-specification.md)
 in the Sails docs.
 
 
 ### Development
 
+Set up your connection in `config/connections.js` by adding the following section
+and customizing it to your needs:
+
+```javascript
+  someDerbyServer: {
+    adapter: 'waterline-derby',
+    url: 'jdbc:derby://localhost:1527/SOMEDB;ssl=basic;user=ME;password=MINE',
+    // minpoolsize: 10,
+    // maxpoolsize: 100,
+    // user: 'user',
+    // password: 'password',
+    // properties: {},
+    // drivername: 'my.jdbc.DriverName',
+    // jvmOptions: '-Xrs',
+    // defaultJars: ['derby.jar', 'derbyclient.jar', 'derbytools.jar']
+  },
+```
+
+This adapter uses the [JDBC](https://github.com/CraZySacX/node-jdbc) module,
+and most configuration options will be forwarded to that module.  The adapter
+and URL are the only required fields, but it is common to specify the minpoolsize
+and maxpoolsize as well.  Using user and password properties (rather than putting
+them in the connection URL string) may work for you, but I've had better luck just
+including them in the connection URL.
+
+Although it is typically unnecessary, to use multiple JDBC drivers in tandem it may be
+necessary to use the initializer (experimental):
+
+```javascript
+var jdbcInit = require('waterline-derby/initializer');
+jdbcInit.initialize(['-Xrs'], ['derby.jar', 'derbyclient.jar', 'derbytools.jar']);
+```
+
 Check out **Connections** in the Sails docs, or see the `config/connections.js`
 file in a new Sails project for information on setting up adapters.
 
-## Getting started
-It's usually pretty easy to add your own adapters for integrating with
-proprietary systems or existing open APIs.  For most things, it's as easy as
-`require('some-module')` and mapping the appropriate methods to match waterline
-semantics.  To get started:
 
-1. Fork this repository
-2. Set up your `README.md` and `package.json` file.  Sails.js adapter module
-   names are of the form sails-*, where * is the name of the datastore or
-   service you're integrating with.
-3. Build your adapter.
+### Run tests
 
+You can set environment variables to override the default database config for the tests, e.g.:
 
+```sh
+$ APACHE_DERBY_WATERLINE_TEST_URL='jdbc:derby://localhost:1527/TEST;user=me;password=mine' npm test
+```
 
-
-### Running the tests
-
-Configure the interfaces you plan to support (and targeted version of
-Sails/Waterline) in the adapter's `package.json` file:
+Default settings are:
 
 ```javascript
 {
-  //...
-  "sails": {
-  	"adapter": {
-	    "sailsVersion": "~0.10.0",
-	    "implements": [
-	      "semantic",
-	      "queryable"
-	    ]
-	  }
-  }
+  url: process.env.APACHE_DERBY_WATERLINE_TEST_URL || 'jdbc:derby://localhost:1527/TEST',
+  minpoolsize: 10,
+  maxpoolsize: 100,
+  schema: true
 }
 ```
-
-In your adapter's directory, run:
-
-```sh
-$ npm test
-```
-
 
 ## Publish your adapter
 
@@ -132,14 +121,6 @@ $ npm test
 9. Run `npm publish`
 
 
-
-
-### Questions?
-
-See [`FAQ.md`](./FAQ.md).
-
-
-
 ### More Resources
 
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/sails.js)
@@ -153,12 +134,8 @@ See [`FAQ.md`](./FAQ.md).
 ### License
 
 **[MIT](./LICENSE)**
-&copy; 2014 [balderdashy](http://github.com/balderdashy) & [contributors]
+&copy; 2016 [balderdashy](http://github.com/balderdashy) & [contributors]
 [Mike McNeil](http://michaelmcneil.com), [Balderdash](http://balderdash.co) & contributors
 
 [Sails](http://sailsjs.org) is free and open-source under the [MIT License](http://sails.mit-license.org/).
-
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/8acf2fc2ca0aca8a3018e355ad776ed7 "githalytics.com")](http://githalytics.com/balderdashy/waterline-derby/README.md)
-
 

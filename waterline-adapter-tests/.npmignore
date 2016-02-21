@@ -1,6 +1,0 @@
-*.sw*
-dump.rdb
-.idea
-node_modules
-.tmp
-.vagrant

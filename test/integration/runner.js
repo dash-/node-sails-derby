@@ -16,7 +16,7 @@
 var util = require('util');
 var mocha = require('mocha');
 var log = require('captains-log')();
-var TestRunner = require('../../waterline-adapter-tests');
+var TestRunner = require('waterline-adapter-tests');
 var Adapter = require('../../lib/adapter');
 
 
@@ -69,7 +69,7 @@ new TestRunner({
 
   // Default adapter config to use.
   config: {
-    url: 'jdbc:derby://localhost:1527/TEST',
+    url: process.env.APACHE_DERBY_WATERLINE_TEST_URL || 'jdbc:derby://localhost:1527/TEST',
     minpoolsize: 10,
     maxpoolsize: 100,
     schema: true,
