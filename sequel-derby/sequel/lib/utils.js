@@ -163,7 +163,8 @@ utils.escapeString = function(value, forLike) {
       case "\t": return "\\t";
       case "\x1a": return "\\Z";
       case "%": return forLike ? "\\%" : "%";
-      case "_": return forLike ? "\\_" : "_";
+      // case "_": return forLike ? "\\_" : "_";
+      case "_": return "_";
       default: return "\\"+s;
     }
   });

@@ -25,16 +25,15 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "bluebird": "^3.2.2",
+    "jdbc": "^0.1.7",
     "lodash": "^4.3.0",
-    "squel": "^4.3.1",
-    "waterline-errors": "^0.10.1",
-    "waterline-sequel": "^0.5.6"
+    "waterline-cursor": "0.0.6",
+    "waterline-errors": "^0.10.1"
   },
   "devDependencies": {
     "captains-log": "~0.11.11",
     "mocha": "2.4.1",
-    "should": "8.2.0",
-    "waterline-adapter-tests": "~0.11.1"
+    "should": "8.2.0"
   },
   "waterlineAdapter": {
     "type": "derby",
@@ -42,13 +41,12 @@
     "interfaces": [
       "semantic",
       "queryable",
-      "migratable",
+      "associations",
       "sql"
     ],
     "features": [
       "crossAdapter",
-      "unique",
-      "autoIncrement.sequential"
+      "unique"
     ]
   }
 }
