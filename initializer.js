@@ -14,7 +14,7 @@ var jinst = require('jdbc/lib/jinst');
 
 module.exports = (() => {
   // Default path for JDBC drivers
-  var driversPath = path.join(__dirname, 'node_modules', 'jdbc', 'drivers');
+  var driversPath = path.join(__dirname, 'drivers');
 
   // Keeps track of whether initialization has been performed
   var isInitialized = false;
