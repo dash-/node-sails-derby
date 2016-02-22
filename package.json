@@ -1,6 +1,6 @@
 {
   "name": "sails-derby",
-  "version": "0.11.8",
+  "version": "0.11.9",
   "description": "Apache Derby adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
