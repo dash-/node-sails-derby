@@ -1,6 +1,6 @@
 ![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png)
 
-# waterline-derby
+# sails-derby
 
 Provides easy access to [Apache Derby](https://db.apache.org/derby/) from Sails.js & Waterline.
 
@@ -21,7 +21,7 @@ everyone.
 To install this adapter, run:
 
 ```sh
-$ npm install --save waterline-derby
+$ npm install --save sails-derby
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ and customizing it to your needs:
 
 ```javascript
   someDerbyServer: {
-    adapter: 'waterline-derby',
+    adapter: 'sails-derby',
     url: 'jdbc:derby://localhost:1527/SOMEDB;ssl=basic;user=ME;password=MINE',
     // minpoolsize: 10,
     // maxpoolsize: 100,
@@ -72,7 +72,7 @@ Although it is typically unnecessary, to use multiple JDBC drivers in tandem it 
 necessary to use the initializer (experimental):
 
 ```javascript
-var jdbcInit = require('waterline-derby/initializer');
+var jdbcInit = require('sails-derby/initializer');
 jdbcInit.initialize(['-Xrs'], ['derby.jar', 'derbyclient.jar', 'derbytools.jar']);
 ```
 
