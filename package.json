@@ -1,6 +1,6 @@
 {
   "name": "sails-derby",
-  "version": "0.11.7",
+  "version": "0.11.8",
   "description": "Apache Derby adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
@@ -27,7 +27,6 @@
     "bluebird": "^3.2.2",
     "jdbc": "^0.2.0",
     "lodash": "^4.3.0",
-    "waterline-adapter-tests": "^0.11.1",
     "waterline-cursor": "0.0.6",
     "waterline-errors": "^0.10.1",
     "waterline-sequel-derby": "^0.5.6"
@@ -35,7 +34,8 @@
   "devDependencies": {
     "captains-log": "~0.11.11",
     "mocha": "2.4.1",
-    "should": "8.2.0"
+    "should": "8.2.0",
+    "waterline-adapter-tests": "^0.11.1"
   },
   "waterlineAdapter": {
     "type": "derby",
